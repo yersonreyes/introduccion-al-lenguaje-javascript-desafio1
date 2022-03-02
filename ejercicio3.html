@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: #2b2d42;
+        color: #edf2f4;
+      }
+
+      p {
+        text-align: center;
+        max-width: 90%;
+      }
+
+      a {
+        color: #edf2f4;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      a:hover {
+        color: #ef233c;
+      }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ejercicio 3</h1>
+      <p>Ingresa los dias para calcular la cantidad de años y meses</p>
+
+      <input id="dias" type="text" placeholder="Cantidad de dias" />
+      <button class="button" onclick="convertir()">Transformar</button>
+      <table id="table"></table>
+      <a href="./index.html">Volver al menu principal</a>
+    </div>
+
+    <script>
+      function convertir(e) {
+        let dias = parseInt(document.getElementById("dias").value);
+
+        let table = document.getElementById("table");
+
+        let transformarMeses = Math.floor(dias * 0.0328549112) || 0;
+        let transformarSemanas = Math.floor(dias / 7) || 0;
+        let transformarAnos = Math.floor(dias / 356) || 0;
+        texto = `
+
+        <tr>
+          <th>Años</th>
+          <th>Meses</th>
+          <th>Semanas</th>
+        </tr>
+        <tr>
+          <td>${transformarAnos}</td>
+          <td>${transformarMeses}</td>
+          <td>${transformarSemanas}</td>  
+        </tr>
+
+
+        `;
+        table.innerHTML = texto;
+      }
+    </script>
+  </body>
+</html>

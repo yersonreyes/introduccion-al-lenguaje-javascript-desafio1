@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: #2b2d42;
+        color: #edf2f4;
+      }
+
+      p {
+        text-align: center;
+        max-width: 90%;
+      }
+
+      a {
+        color: #edf2f4;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      a:hover {
+        color: #ef233c;
+      }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ejercicio 4</h1>
+      <p>Ingresa 5 numeros para sumarlos y calcular el promedio de estos</p>
+
+      <input id="num1" type="text" placeholder="Primer numero" />
+      <input id="num2" type="text" placeholder="Segundo numero" />
+      <input id="num3" type="text" placeholder="Tercer numero" />
+      <input id="num4" type="text" placeholder="Cuarto numero" />
+      <input id="num5" type="text" placeholder="Quinto numero" />
+      <button class="button" onclick="sumarPromediar()">
+        Sumar y promediar
+      </button>
+      <table id="table"></table>
+      <a href="./index.html">Volver al menu principal</a>
+    </div>
+
+    <script>
+      function sumarPromediar(e) {
+        let num1 = parseInt(document.getElementById("num1").value);
+        let num2 = parseInt(document.getElementById("num2").value);
+        let num3 = parseInt(document.getElementById("num3").value);
+        let num4 = parseInt(document.getElementById("num4").value);
+        let num5 = parseInt(document.getElementById("num5").value);
+
+        let table = document.getElementById("table");
+
+        let sumarNumeros = num1 + num2 + num3 + num4 + num5 || 0;
+        let promediarNumeros = (num1 + num2 + num3 + num4 + num5) / 5 || 0;
+
+        texto = `
+
+        <tr>
+          <th>Suma de los 5 numeros</th>
+          <th>Promedio</th>
+        </tr>
+        <tr>
+          <td>${sumarNumeros}</td>
+          <td>${promediarNumeros}</td>  
+        </tr>
+
+
+        `;
+        table.innerHTML = texto;
+      }
+    </script>
+  </body>
+</html>
